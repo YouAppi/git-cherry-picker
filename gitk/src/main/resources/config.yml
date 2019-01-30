@@ -1,12 +1,12 @@
 ---
 repository: "git-cherry-picker"
-organization: "org"
-gitUserName: "user"
-gitUserEmail: "user@org.com"
-gitUserPass: "cITmQYaAWR8"
-gmailUser: "gmailuser"
-gmailPass: "LCevAcQ_jOIICs7XUhsm-A"
+organization: "YouAppi"
+gitUserName: "youBotti"
+gitUserEmail: "botty@youappi.com"
+gitUserPass: "3QEwW7yVk6YHuvLsBvktCTW_cnWSk626hcnsJblYCx8gLw00wQFlTggKztdSGyb4"
+gmailUser: "ori.y@youappi.com"
+gmailPass: "b-JMCMKSixMJETcwl0C75w"
 
 approverTokens:
-- "NgNJpDtS4RqGB-vAve2It5oUisbyVHthDygEnz4-JUbCYAjP0NnT2wgKztdSGyb4"
-- "3QEwW7yVk6YHuvLsBvktCTW_cnWSk626hcnsJblYCx8gLw00wQFlTggKztdSGyb4"
+- "BZV3187ACQF7mlDDr70ikCsSs1hcY66tH-cgqKfQUA9r8wCMtelXEwgKztdSGyb4"
+- "p9ehpUvdBsVh-V-KJ0Xy8o5z2hIl9rmKtRRyxkxy2KhZG1DFkeA2qggKztdSGyb4"
