@@ -97,6 +97,7 @@ class GitCommandExecutor {
         File repoDir = new File(checkoutPath + '/' + projectName)
         if (repoDir.exists() && new File(repoDir, '.git').exists()) {
             execute(gitCheckoutCommand(branchName), repoDir)
+            execute(gitFetchCommand("--all --prune"), discardOutput, repoDir)
             execute(gitPullCommand(), discardOutput, repoDir)
         } else {
             execute(gitCloneCommand(repositoryUrl), discardOutput, checkoutDir)
