@@ -23,6 +23,7 @@ class GitGreenMerger {
 
     final GitCommandExecutor gitExec
     final GitHubClient gitHubClient
+    final PullRequestReviewsService pullRequestReviewsService
     final PullRequestService pullRequestService
     final PullRequestStatusService pullRequestStatusService
     final IssueService issueService
@@ -30,16 +31,19 @@ class GitGreenMerger {
     final IRepositoryIdProvider repositoryId
 
     public GitGreenMerger(GitCommandExecutor gitExec, GitHubClient gitHubClient, IRepositoryIdProvider repositoryId) {
-        this(gitExec, gitHubClient, new PullRequestService(gitHubClient),
+        this(gitExec, gitHubClient,
+             new PullRequestReviewsService(GitHubUtil.createApproverGitHubClients()), new PullRequestService(gitHubClient),
              new PullRequestStatusService(gitHubClient), new IssueService(gitHubClient),
              new GitKDataService(gitHubClient), repositoryId)
     }
 
-    GitGreenMerger(GitCommandExecutor gitExec, GitHubClient gitHubClient, PullRequestService pullRequestService,
+    GitGreenMerger(GitCommandExecutor gitExec, GitHubClient gitHubClient,
+                   PullRequestReviewsService pullRequestReviewsService, PullRequestService pullRequestService,
                    PullRequestStatusService pullRequestStatusService, IssueService issueService,
                    GitKDataService gitKDataService, IRepositoryIdProvider repositoryId) {
         this.gitExec = gitExec
         this.gitHubClient = gitHubClient
+        this.pullRequestReviewsService = pullRequestReviewsService
         this.pullRequestService = pullRequestService
         this.pullRequestStatusService = pullRequestStatusService
         this.issueService = issueService
@@ -115,8 +119,8 @@ class GitGreenMerger {
         } else {
             println('PR ' + prNumber + ' state: ' + mergeState.getDescription())
             if (mergeState.isBuildPending()) {
-                println('PR ' + prNumber + ' ' + RETEST_THIS_PLEASE)
-                issueService.createComment(repositoryId, prNumber, RETEST_THIS_PLEASE)
+                println('PR ' + prNumber + ' reapprove')
+                pullRequestReviewsService.approvePullRequest(repositoryId, prNumber)
             }
         }
         println('')
