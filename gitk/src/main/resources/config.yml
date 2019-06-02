@@ -4,8 +4,8 @@ organization: "YouAppi"
 gitUserName: "youBotti"
 gitUserEmail: "botty@youappi.com"
 gitUserPass: "3QEwW7yVk6YHuvLsBvktCTW_cnWSk626hcnsJblYCx8gLw00wQFlTggKztdSGyb4"
-gmailUser: "ori.y@youappi.com"
-gmailPass: "b-JMCMKSixMJETcwl0C75w"
+gmailUser: "ignore@youappi.com"
+gmailPass: "pass"
 
 approverTokens:
-- "BZV3187ACQF7mlDDr70ikCsSs1hcY66tH-cgqKfQUA9r8wCMtelXEwgKztdSGyb4"
+- "OTyzqlKv7lPD-WJfn4drKtxm_qb3MSnR4qWXkbee7P5cKKDb0ZPDdggKztdSGyb4"
